@@ -5,7 +5,7 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
     const password = document.getElementById('password').value;
 
     // Send the data to a backend server
-    fetch('http://your-server-url.com/api/login', {
+    fetch('http://127.0.0.1:5500/index.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -18,30 +18,4 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
             console.error('Error:', error);
             alert('An error occurred. Please try again.');
         });
-});
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
-const app = express();
-app.use(bodyParser.json());
-app.use(cors());
-
-let tempDatabase = [];
-
-app.post('/api/login', (req, res) => {
-    const { email, password } = req.body;
-    tempDatabase.push({ email, password });
-    res.json({ message: 'Login credentials stored temporarily.' });
-});
-
-// View temporary database
-app.get('/api/database', (req, res) => {
-    res.json(tempDatabase);
-});
-
-// Start server
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
 });

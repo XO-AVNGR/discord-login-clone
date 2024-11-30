@@ -1,26 +1,16 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
 const app = express();
-app.use(bodyParser.json());
-app.use(cors());
 
-let tempDatabase = [];
+// Serve static files (e.g., HTML, CSS, JS) from the "public" directory
+app.use(express.static('public'));
 
-app.post('/api/login', (req, res) => {
-    const { email, password } = req.body;
-    tempDatabase.push({ email, password });
-    res.json({ message: 'Login credentials stored temporarily.' });
+// Define a route for the root URL
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html'); // Make sure you have an "index.html" in your project
 });
 
-// View temporary database
-app.get('/api/database', (req, res) => {
-    res.json(tempDatabase);
-});
-
-// Start server
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
