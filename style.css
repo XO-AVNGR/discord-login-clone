@@ -1,73 +1,88 @@
-body {
+/* General reset */
+body, html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #36393f;
-    color: #fff;
+    background-color: #36393f; /* Discord's dark theme background */
+    color: #ffffff;
+    height: 100%;
+}
+
+/* Center the login box */
+.login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.container {
-    width: 100%;
-    max-width: 400px;
-    background-color: #2f3136;
-    padding: 20px;
-    border-radius: 10px;
+/* Login box styling */
+.login-box {
+    background-color: #2f3136; /* Discord's card background color */
+    padding: 40px;
+    border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
+    width: 100%;
+    max-width: 400px;
 }
 
 .login-box h1 {
-    margin-bottom: 10px;
     font-size: 24px;
-    color: #fff;
+    margin-bottom: 10px;
 }
 
 .login-box p {
+    font-size: 14px;
     margin-bottom: 20px;
-    color: #b9bbbe;
+    color: #b9bbbe; /* Discord's light gray text */
 }
 
-label {
+.login-box label {
     display: block;
+    text-align: left;
+    font-size: 12px;
+    color: #b9bbbe;
     margin-bottom: 5px;
-    font-weight: bold;
 }
 
-input {
+.login-box input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border: none;
     border-radius: 5px;
-    background: #202225;
-    color: #fff;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #5865f2;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #4752c4;
-}
-
-.links a {
-    color: #5865f2;
-    text-decoration: none;
+    background-color: #202225; /* Input field background */
+    color: #ffffff;
     font-size: 14px;
 }
 
-.links a:hover {
+.login-box input:focus {
+    outline: none;
+    border: 1px solid #7289da; /* Discord's primary blue */
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5865f2; /* Discord's button blue */
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #4752c4; /* Darker blue on hover */
+}
+
+.login-box a {
+    color: #7289da;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.login-box a:hover {
     text-decoration: underline;
 }
